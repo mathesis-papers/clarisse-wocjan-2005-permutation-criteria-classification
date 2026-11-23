@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24414701",
     "current_version": 2,
-    "doi": null,
+    "doi": "10.5281/zenodo.24414702",
     "lean_source": {
       "revision": "3464bc4487b2236dab97aaf7bbed237f0db28b71",
       "url": "https://github.com/the-omega-institute/trureturing/blob/3464bc4487b2236dab97aaf7bbed237f0db28b71/D5/S3/Quantum/Entanglement/PermutationCriteria/ClarisseWocjanClassification.lean"
