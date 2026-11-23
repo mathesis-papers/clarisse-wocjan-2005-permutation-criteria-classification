@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 88215,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "19e80358116b1d29a4dc07d592054e720cacbb5c8a27bd21599feee8574208bd",
+      "sha256": "19e80358116b1d29a4dc07d592054e720cacbb5c8a27bd21599feee8574208bd"
+    },
+    "source": {
+      "bytes": 15051,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "89ff11eaf980f446901f8815de043f17de8fe90a9bdd0fb03822124dc81195b3",
+      "sha256": "89ff11eaf980f446901f8815de043f17de8fe90a9bdd0fb03822124dc81195b3"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "Extending Clarisse and Wocjan's orbit bound and answering their norm-dependence question (arXiv:quant-ph/0504160v2, 14 June 2005, Theorem 3, p. 3, equation (2); Section V, p. 6; Definition 1, p. 2), we prove for every r >= 1 and d >= 2 that mixed single-party and Bell-pair states distinguish tensor-index permutations exactly up to the four row-set symmetries. Consequently the prior orbit bound is exact for norm equality. The same classification holds for rank and every Schatten functional with 0 < p <= infinity, p != 2, including quasi-norms below one; all permutations preserve the Hilbert-Schmidt norm. We also give an adaptive identifying family of at most 2r - 1 states and a Bell-state proof of the known partial-transpose incomparability.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "3464bc4487b2236dab97aaf7bbed237f0db28b71",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/3464bc4487b2236dab97aaf7bbed237f0db28b71/D5/S3/Quantum/Entanglement/PermutationCriteria/ClarisseWocjanClassification.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 88215,
+      "sha256": "19e80358116b1d29a4dc07d592054e720cacbb5c8a27bd21599feee8574208bd",
+      "url": "/api/v1/collected-papers/clarisse-wocjan-2005-permutation-criteria-classification/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-23T16:52:09.274630504Z",
+    "record": "clarisse-wocjan-2005-permutation-criteria-classification",
+    "repository_name": "clarisse-wocjan-2005-permutation-criteria-classification",
+    "source": {
+      "bytes": 15051,
+      "sha256": "89ff11eaf980f446901f8815de043f17de8fe90a9bdd0fb03822124dc81195b3",
+      "url": "/api/v1/collected-papers/clarisse-wocjan-2005-permutation-criteria-classification/files/source?version=2"
+    },
+    "title": "Schatten and rank extensions of Clarisse and Wocjan's permutation classification",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-23T16:52:09.274630504Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "clarisse-wocjan-2005-permutation-criteria-classification"
+  }
+}

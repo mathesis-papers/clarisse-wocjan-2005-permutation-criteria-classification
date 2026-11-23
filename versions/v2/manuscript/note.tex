@@ -1,0 +1,450 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Schatten and rank extensions of Clarisse and Wocjan's permutation classification},pdfauthor={Haobo Ma and Wenlin Zhang}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\tr}{\operatorname{Tr}}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\bits}{\{0,1\}}
+\newcommand{\R}{\mathcal R}
+\title{Schatten and rank extensions of Clarisse and Wocjan's\\permutation classification}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{16 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Extending Clarisse and Wocjan's orbit bound and answering their
+norm-dependence question \cite[Theorem~3, p.~3, equation~(2);
+Section~V, p.~6; Definition~1, p.~2]{CW},
+arXiv:quant-ph/0504160v2 (14 June 2005), we prove for every $r\geq1$
+and $d\geq2$ that mixed single-party and Bell-pair states distinguish
+tensor-index permutations exactly up to the four row-set symmetries.
+Consequently the prior orbit bound is exact for norm equality.
+The same classification holds for rank and every Schatten functional
+with $0<p\leq\infty$, $p\ne2$, including quasi-norms below one;
+all permutations preserve the Hilbert--Schmidt norm.
+We also give an adaptive identifying family of at most $2r-1$ states
+and a Bell-state proof of the known partial-transpose incomparability.
+\end{abstract}
+
+\section{Statement and relation to the source}
+
+Permutation separability criteria compare the trace norm of a rearranged
+density matrix with one \cite{HHH}. Wocjan and Horodecki classified
+dependencies obtained from norm-preserving maps on all operators
+\cite[Lemmas 1--2]{WH}. Clarisse and Wocjan used Hermiticity to identify
+further pairs, and counted the resulting orbits
+\cite[Theorem 3]{CW}. Their remaining norm-dependence question concerns
+whether positivity forces any additional identifications. We answer it
+by an explicit family of positive trace-one separating states.
+The earlier orbit count and partial-transpose independence are credited
+below as prior results, rather than consequences first posed here.
+The equality problem also appears as a probable class count in
+OEIS A045723 \cite{OEIS}. Later work on random-state realignment
+\cite[Section~1.1 and Theorem~1.1]{AN} and permutation moments
+\cite{Liu} concerns detection and moment inequalities, respectively;
+those results have a different scope from equality of norm functions.
+
+Let $r\geq1$, $d\geq2$, and $H=(\mathbb C^d)^{\otimes r}$.
+Number the tensor-index positions by
+$P=\{0,\ldots,2r-1\}$: positions $2k$ and $2k+1$ are the ket and bra
+indices of party $k\in\{0,\ldots,r-1\}$. For $\sigma\in S_{2r}$ use
+the convention of \cite[Section II]{CW}, shifted to zero-based indices:
+\[
+ (\Lambda_\sigma\rho)_{i_0i_1,\ldots,i_{2r-2}i_{2r-1}}
+ =\rho_{i_{\sigma(0)}i_{\sigma(1)},\ldots,
+              i_{\sigma(2r-2)}i_{\sigma(2r-1)}}.
+\]
+All indices take values in $\{0,\ldots,d-1\}$.
+Set $S_\sigma=\{p\in P:\sigma(p)\text{ is even}\}$, an $r$-element
+subset of $P$. Let $C(S)=P\setminus S$ and let $J$ exchange $2k$ with
+$2k+1$ at every party; $J(S)=\{J(p):p\in S\}$.
+For a matrix $A$, $\norm{A}_1=\tr\sqrt{A^*A}$ is its trace norm.
+Norm dependence means equality of $\norm{\Lambda_\sigma\rho}_1$ and
+$\norm{\Lambda_\mu\rho}_1$ for every $\rho\geq0$ with $\tr\rho=1$.
+
+\begin{theorem}\label{thm:main}
+For $r\geq1$ and $d\geq2$, permutations $\sigma,\mu\in S_{2r}$ are
+norm dependent if and only if
+\begin{equation}\label{eq:orbit}
+ S_\mu\in\{S_\sigma,C(S_\sigma),J(S_\sigma),CJ(S_\sigma)\}.
+\end{equation}
+\end{theorem}
+
+The theorem concerns equality of norm functions. The source also considers
+the stronger property that no entanglement-detection set is contained in
+another. That detection-set comparison is a separate assertion.
+
+\section{A finite family of separating states}
+
+For $S\subset P$ with $|S|=r$, let $\R_S\rho$ be the matrix obtained by
+placing the original indices in $S$ on the row side, and those in $C(S)$
+on the column side, each in increasing order. Then $\Lambda_\sigma\rho$
+and $\R_{S_\sigma}\rho$ differ by independent row and column permutations,
+so have the same singular values. Define the labels
+\[
+ x_k(S)=(a_k,b_k)
+   =(\mathbf1_{2k\in S},\mathbf1_{2k+1\in S})\in\bits^2,
+ \qquad
+ D(x,y)=\mathbf1_{x_1\ne y_1}+\mathbf1_{x_2\ne y_2}.
+\]
+Here a label bit is one precisely when its original position becomes a
+row index. Call the labels equal-side if $a_k=b_k$.
+
+Let $P_0=\ket0\bra0$. At party $k$ put the maximally mixed qubit
+$Q=(\ket0\bra0+\ket1\bra1)/2$, and put $P_0$ at the other parties;
+denote the product state by $M_k$. For distinct $k,l$ put
+$\ket{\Phi}_{kl}=(\ket{00}+\ket{11})/\sqrt2$ at those two parties,
+with $P_0$ elsewhere, and denote its density matrix by $B_{kl}$.
+These are positive trace-one states in every $d\geq2$.
+
+\begin{lemma}\label{lem:norms}
+The nonzero singular values of their rearrangements are as follows:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+State & Label condition & Nonzero singular values\\
+\midrule
+$M_k$ & $a_k=b_k$ & $1/\sqrt2$\\
+$M_k$ & $a_k\ne b_k$ & $1/2,\ 1/2$\\
+$B_{kl}$ & $D(x_k,x_l)=0$ & $1$\\
+$B_{kl}$ & $D(x_k,x_l)=1$ & $1/\sqrt2,\ 1/\sqrt2$\\
+$B_{kl}$ & $D(x_k,x_l)=2$ & $1/2,\ 1/2,\ 1/2,\ 1/2$\\
+\bottomrule
+\end{tabular}
+\end{center}
+In particular, the mixed-state trace norms distinguish equal-side from
+opposite-side labels, and the Bell-state trace norm is $2^{D(x_k,x_l)/2}$.
+\end{lemma}
+
+\begin{proof}
+The two nonzero entries of $M_k$ have coefficient $1/2$. If its ket and
+bra positions are on the same side, these entries form one row or column,
+of Euclidean length $1/\sqrt2$. Otherwise they occupy distinct rows and
+distinct columns and give two singular values $1/2$.
+
+For $B_{kl}$ the four entries have coefficient $1/2$, with local ket
+indices $(u,u)$ and local bra indices $(v,v)$ for $u,v\in\bits$.
+The placement of these two bits proves every row of the table.
+If the two labels agree and are equal-side, all four entries form one
+row or column. If they agree and are opposite-side, they form a
+$2\times2$ all-ones block divided by two. Both cases have one singular
+value one. At distance two, each bit occurs on each side and the four
+entries have distinct rows and distinct columns; the block is a
+$4\times4$ permutation matrix divided by two. At distance one, one label
+is equal-side and the other is opposite-side. One side then carries a
+single bit, while the other carries both bits. The block, or its
+transpose, consists of two orthogonal rows with two entries $1/2$ in
+each. Its two singular values are $1/\sqrt2$. Unused coordinates add
+zero rows and columns, so none of these values depends on $r$ or $d$.
+\end{proof}
+
+\begin{lemma}\label{lem:labels}
+Two families $x_k,y_k\in\bits^2$ with the same equal-side parties and
+the same distances $D(x_k,x_l)=D(y_k,y_l)$ for all $k,l$ differ by one
+global coordinate exchange and one global simultaneous bit complement.
+\end{lemma}
+
+\begin{proof}
+Split the parties into the equal-side sector and its complement.
+Within either sector a label is determined by its first bit, and the
+distance of two labels is zero or two according as those first bits
+agree or disagree. Thus the equality relation on first bits agrees for
+the two families in each sector. In a nonempty sector choose an anchor.
+The change in its first bit determines a bit $c$; agreement with the
+anchor shows that every first bit in that sector changes by $c$.
+For an empty sector choose $c=0$.
+
+Write $c_E,c_O$ for the two sector changes. Simultaneous complement
+changes both sectors' first bits, whereas coordinate exchange changes
+the first bit only in the opposite-side sector. Consequently coordinate
+exchange $c_E\mathbin\oplus c_O$ times followed by complement $c_E$
+times maps every $x_k$ to $y_k$. The sector fixes each second bit from
+its first, proving the assertion, including empty sectors.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Suppose the norm functions agree. Testing $M_k$ and using
+Lemma~\ref{lem:norms} identifies the equal-side parties. Testing $B_{kl}$
+identifies all pair distances since $1,\sqrt2,2$ are distinct.
+Lemma~\ref{lem:labels} now gives \eqref{eq:orbit}: coordinate exchange
+is $J$, and bit complement is $C$.
+
+Conversely, equal row sets give independent row and column reindexing.
+Complementing a row set transposes the rearranged matrix, up to such
+reindexing. For Hermitian $\rho$, exchanging all original ket and bra
+positions replaces every tensor entry by its complex conjugate. Thus
+$\R_{J(S)}\rho$ is an entrywise conjugate of $\R_S\rho$, up to row and
+column reindexing. Transpose, entrywise conjugation, and row and column
+permutations preserve singular values. Each of the four sets in
+\eqref{eq:orbit} therefore has the same trace norm on every state.
+\end{proof}
+
+\begin{corollary}\label{cor:finite}
+For fixed $r\geq1$, $d\geq2$, equality of two permutation norm functions
+on the $r+\binom r2$ states $M_k,B_{kl}$ is equivalent to equality on
+every density matrix. The same four symmetries also characterize
+equality of the full singular-value lists on every density matrix.
+\end{corollary}
+\begin{proof}
+The necessity argument uses exactly those states. The converse argument
+preserves each singular value, not just their sum.
+\end{proof}
+
+\begin{corollary}[Adaptive identification]\label{cor:adaptive}
+For two given permutations it suffices to compare $r$ mixed-state
+values and at most $r-1$ Bell-state values. If both equal-side sectors
+are nonempty, at most $2r-2$ values in total suffice.
+\end{corollary}
+\begin{proof}
+First compare every $M_k$. If a value differs, the functions differ.
+Otherwise the common equal-side partition is known. In each nonempty
+sector choose an anchor and compare its Bell value with every other
+party of that sector. These distances recover all first bits relative
+to the anchor, exactly as in Lemma~\ref{lem:labels}. Distances across
+sectors are always one. With $s\in\{1,2\}$ nonempty sectors the number
+of Bell comparisons is $r-s$, giving the stated bounds. The choices
+depend on the mixed-state answers; this is not a fixed universal
+family of $2r-1$ states.
+\end{proof}
+
+\section{Counting the classes and changing the norm}
+
+\begin{corollary}\label{cor:count}
+The exact number of norm-dependence classes, including the identity
+criterion, is
+\begin{equation}\label{eq:count}
+ N_r=\frac14\left(\binom{2r}{r}+2^r+
+       \mathbf1_{2\mid r}\binom r{r/2}\right),\qquad r\geq1.
+\end{equation}
+There are $N_r-1$ nontrivial classes. For $r=1,2,3,4$ these numbers
+are respectively $0,2,6,22$.
+\end{corollary}
+\begin{proof}
+Every $r$-subset is $S_\sigma$ for some permutation. Apply the orbit
+counting lemma to the four-element group generated by $C,J$ on these
+subsets. The identity fixes $\binom{2r}{r}$ subsets. Complement fixes
+none, since $P$ is nonempty. A $J$-fixed subset is a union of whole
+ket--bra pairs: it exists only for even $r$, and then one chooses $r/2$
+of the $r$ pairs. Finally $CJ(S)=S$ means that exactly one position of
+each pair lies in $S$, giving $2^r$ choices. Averaging these fixed-point
+counts proves \eqref{eq:count}. The orbit of the even positions is
+the identity class, whose norm is one on every state, so subtracting it
+leaves $N_r-1$ classes.
+\end{proof}
+
+The formula is the upper bound already obtained in
+\cite[Theorem 3, equation (2)]{CW}; the separating states make it exact
+for norm dependence. In particular the small-party counts agree with
+those in \cite[Section IV]{CW} without extending their detection-set
+claims to other dimensions or more parties.
+
+If $s_j(A)$ are the singular values of $A$, for $0<p<\infty$ write
+$\norm A_p=(\sum_j s_j(A)^p)^{1/p}$, and let
+$\norm A_\infty=\max_j s_j(A)$. This is a quasi-norm when $p<1$.
+\begin{corollary}\label{cor:schatten}
+Theorem~\ref{thm:main} and Corollary~\ref{cor:finite} hold with the
+trace norm replaced by any Schatten functional, $0<p\leq\infty$,
+$p\ne2$. Corollary~\ref{cor:adaptive} holds in the same range.
+For $p=2$ all tensor-index permutations have the same norm
+on every operator.
+\end{corollary}
+\begin{proof}
+Put $1/p=0$ when $p=\infty$. Lemma~\ref{lem:norms} gives
+\[
+ \norm{\R_S M_k}_p=
+ \begin{cases}2^{-1/2}&a_k=b_k,\\2^{1/p-1}&a_k\ne b_k,\end{cases}
+ \qquad
+ \norm{\R_S B_{kl}}_p=2^{D(x_k,x_l)(1/p-1/2)}.
+\]
+For $p\ne2$ the two mixed-state values are distinct, as are the three
+Bell-state values. The same label reconstruction applies, and the
+four symmetries preserve every singular value; the argument uses no
+triangle inequality, so it also applies below one. At $p=2$ the squared norm
+is the sum of squared absolute values of all entries, which an index
+permutation leaves unchanged.
+\end{proof}
+
+Permutation moments also appear in experimentally accessible
+entanglement criteria \cite{Liu}. Corollary~\ref{cor:schatten}, for
+example at $p=4$, classifies equality of those fourth singular-value
+moments as functions of the state; it is not a comparison of the
+detection powers of moment-based inequalities.
+
+\begin{corollary}[Rank and positive-definite tests]\label{cor:rank}
+Two permutations have equal ranks on every density matrix if and only
+if \eqref{eq:orbit} holds. For every fixed $0<p\leq\infty$, $p\ne2$,
+equality of Schatten functionals on positive-definite density matrices
+already implies equality on all density matrices.
+\end{corollary}
+\begin{proof}
+The ranks on $M_k$ are respectively one and two in the equal-side
+and opposite-side cases. On $B_{kl}$ the rank is $2^{D(x_k,x_l)}$.
+They therefore recover the same label data, and the four symmetries
+preserve rank. For the second assertion, approximate any density matrix
+$\rho$ by $(1-\varepsilon)\rho+\varepsilon I/d^r$, with
+$0<\varepsilon<1$, and use continuity of each singular value and of
+the Schatten functional as $\varepsilon\downarrow0$. This continuity
+argument concerns Schatten functionals, not the discontinuous rank.
+\end{proof}
+
+\begin{corollary}[Uncorrelated spectators]\label{cor:spectators}
+If an additional party in density matrix $\tau$ is left unchanged,
+then for every $0<p\leq\infty$,
+\[
+ \norm{(\Lambda_\sigma\rho)\otimes\tau}_p
+   =\norm{\Lambda_\sigma\rho}_p\norm{\tau}_p.
+\]
+Thus the trace norm is unchanged for every density matrix $\tau$;
+every Schatten functional is unchanged when $\tau$ is pure.
+\end{corollary}
+\begin{proof}
+The singular values of a tensor product are all pairwise products of
+the two singular-value lists, by tensoring singular-value decompositions.
+Sum their $p$th powers, or take their maximum when $p=\infty$.
+For density matrices $\norm\tau_1=1$, and for pure ones $\norm\tau_p=1$.
+The spectator is a separate, unrearranged tensor factor here.
+\end{proof}
+The trace-norm case explains the uncorrelated-ancilla construction in
+\cite[Sections IV.B--C]{CW}; it does not assert invariance under every
+possible regrouping of a mixed ancillary party.
+
+\begin{corollary}[Partial-transpose criteria]\label{cor:cuts}
+For $r\geq1$ and $d\geq2$ there are $2^{r-1}-1$ nontrivial
+partial-transpose criteria, up to global transpose. Their
+entanglement-detection sets are pairwise incomparable.
+\end{corollary}
+\begin{proof}
+Let $T_A$ transpose exactly the parties of a nonempty proper subset
+$A$. It is equivalent to $T_{A^c}$ by global transpose.
+The $2^r-2$ nontrivial subsets thus give $2^{r-1}-1$ cuts.
+On $B_{kl}$, $\norm{T_A B_{kl}}_1$ is two if exactly one of $k,l$
+belongs to $A$, and one otherwise, by Lemma~\ref{lem:norms}.
+For inequivalent nontrivial cuts $A,B$, some pair is separated by
+$A$ but not $B$: otherwise each block of the $B$-cut would be contained
+in a block of the $A$-cut, forcing the two nontrivial two-block
+partitions to coincide. Reversing $A,B$ gives a pair separated only
+by $B$. Their Bell states witness both directions of noncontainment.
+The assertion is vacuous when fewer than two such cuts exist.
+\end{proof}
+This supplies an explicit proof of the loop-only independence discussed
+by Clarisse and Wocjan \cite[Section~V, p.~6]{CW}. It does not establish
+incomparability between criteria containing realignments. In particular,
+their Section~IV.A distinguishes the two-qubit case from dimensions
+where partial transpose and realignment have incomparable detection sets.
+
+\section{Coverage and verification scope}
+
+\begin{center}\small
+\begin{tabular}{@{}p{.36\linewidth}p{.57\linewidth}@{}}
+\toprule
+Source item in \cite{CW} & Coverage\\
+\midrule
+Definition 1, p.~2; Section V, p.~6: further norm dependencies? &
+Answered: no. The four symmetries are complete for all $r\geq1$,
+$d\geq2$ (Theorem~\ref{thm:main}).\\[3pt]
+Theorem 3: four symmetries and orbit bound &
+Reproved; prior proof Clarisse--Wocjan (2005 preprint/2006 journal).
+The upper bound becomes exact for norm equality
+(Corollary~\ref{cor:count}).\\[3pt]
+Section IV: $2,6,22$ nontrivial classes &
+Reproved for norm equality; prior proof Clarisse--Wocjan (2005).
+No new detection-set conclusion follows from these counts.\\[3pt]
+Section V: independence of loop-only criteria &
+Reproved; prior proof Clarisse--Wocjan (2005).
+Corollary~\ref{cor:cuts} gives both Bell-state witnesses.\\[3pt]
+Sections IV.B--C: uncorrelated ancillas &
+Prior trace-norm invariance reproved; Schatten product formula
+in Corollary~\ref{cor:spectators}.\\[3pt]
+Section V: realignment vs partial-transpose detection &
+Prior proof cited (Clarisse--Wocjan, 2005); not reproved here.\\[3pt]
+Abstract; Sections IV--V: all-orbit detection-set incomparability &
+Not covered in general; not implied by norm inequality.\\[3pt]
+Equation (2); OEIS A045723, Clarisse's comment (2006) &
+Probable norm-class count made exact; the orbit formula is prior work.\\[3pt]
+Schatten quasi-norms, rank, adaptive tests, full-rank norm tests &
+Not posed in the source; proved in
+Corollaries~\ref{cor:adaptive}, \ref{cor:schatten}, \ref{cor:rank}.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{flushleft}\small
+Declaration names below are relative to the namespace\par
+\texttt{D5.S3.Quantum.Entanglement.PermutationCriteria}.\par
+The Lean declaration \texttt{ClarisseWocjanClassification.result} in the
+\href{https://github.com/the-omega-institute/trureturing/blob/3464bc4487b2236dab97aaf7bbed237f0db28b71/D5/S3/Quantum/Entanglement/PermutationCriteria/ClarisseWocjanClassification.lean}{pinned classification source}
+states exactly the equivalence of Theorem~\ref{thm:main}, with positive
+trace-one inputs and $r\geq1$, $d\geq2$.
+At that same revision, the declarations
+\href{https://github.com/the-omega-institute/trureturing/blob/3464bc4487b2236dab97aaf7bbed237f0db28b71/D5/S3/Quantum/Entanglement/PermutationCriteria/LabelRecovery.lean}{\texttt{LabelRecovery.recover\_labels}}
+and
+\href{https://github.com/the-omega-institute/trureturing/blob/3464bc4487b2236dab97aaf7bbed237f0db28b71/D5/S3/Quantum/Entanglement/PermutationCriteria/RowSetRecovery.lean}{\texttt{RowSetRecovery.recover\_rowSets}}
+give Boolean-label and row-set reconstruction.
+\href{https://github.com/the-omega-institute/trureturing/blob/3464bc4487b2236dab97aaf7bbed237f0db28b71/D5/S3/Quantum/Entanglement/PermutationCriteria/Witnesses.lean}{\texttt{dependent\_sameSide}}
+recovers the sector data; the
+\href{https://github.com/the-omega-institute/trureturing/blob/3464bc4487b2236dab97aaf7bbed237f0db28b71/D5/S3/Quantum/Entanglement/PermutationCriteria/BellBlocks.lean}{\texttt{BellBlocks.traceNorm\_fourEntries}}
+gives the trace norm of four correlated half entries from their coordinate
+kernels, used in
+\href{https://github.com/the-omega-institute/trureturing/blob/3464bc4487b2236dab97aaf7bbed237f0db28b71/D5/S3/Quantum/Entanglement/PermutationCriteria/BellWitnesses.lean}{\texttt{dependent\_pairDistance}}
+to recover pair distances.
+The count, adaptive identification, Schatten and rank extensions,
+positive-definite testing, spectator formula and cut witnesses have written proofs above;
+they are not the proposition of the classification declaration.
+The accompanying
+\texttt{verify.py} checks the integer Gram matrices of the local witness
+blocks and enumerates the identifying signatures and symmetry orbits
+for $1\leq r\leq8$. It also checks adaptive signatures through eight
+parties and cut-separation witnesses through eight parties.
+These are finite checks of the formulas, rather than the all-parameter proof.
+\end{flushleft}
+
+\begin{thebibliography}{9}
+\bibitem{CW}
+L.~Clarisse and P.~Wocjan,
+\emph{On independent permutation separability criteria},
+Quantum Information \& Computation \textbf{6}(3), 277--288 (2006).
+\href{https://doi.org/10.26421/QIC6.3-4}{doi:10.26421/QIC6.3-4}.
+Posing version: \href{https://arxiv.org/abs/quant-ph/0504160v2}{arXiv:quant-ph/0504160v2} (2005).
+\bibitem{WH}
+P.~Wocjan and M.~Horodecki,
+\emph{Characterization of combinatorially independent permutation
+separability criteria}, Open Systems \& Information Dynamics
+\textbf{12}(4), 331--345 (2005).
+\href{https://doi.org/10.1007/s11080-005-4483-2}{doi:10.1007/s11080-005-4483-2};
+\href{https://arxiv.org/abs/quant-ph/0503129v2}{arXiv:quant-ph/0503129v2}.
+\bibitem{HHH}
+M.~Horodecki, P.~Horodecki and R.~Horodecki,
+\emph{Separability of mixed quantum states: linear contractions and
+permutation criteria}, Open Systems \& Information Dynamics
+\textbf{13}(1), 103--111 (2006).
+\href{https://doi.org/10.1007/s11080-006-7271-8}{doi:10.1007/s11080-006-7271-8};
+\href{https://arxiv.org/abs/quant-ph/0206008}{arXiv:quant-ph/0206008}.
+\bibitem{Liu}
+Z.~Liu, Y.~Tang, H.~Dai, P.~Liu, S.~Chen and X.~Ma,
+\emph{Detecting entanglement in quantum many-body systems via permutation
+moments}, Phys. Rev. Lett. \textbf{129}, 260501 (2022).
+\href{https://doi.org/10.1103/PhysRevLett.129.260501}{doi:10.1103/PhysRevLett.129.260501};
+\href{https://arxiv.org/abs/2203.08391v2}{arXiv:2203.08391v2}.
+\bibitem{AN}
+G.~Aubrun and I.~Nechita,
+\emph{Realigning random states}, J. Math. Phys. \textbf{53}, 102210 (2012).
+\href{https://doi.org/10.1063/1.4759115}{doi:10.1063/1.4759115};
+\href{https://arxiv.org/abs/1203.3974v1}{arXiv:1203.3974v1}.
+\bibitem{OEIS}
+OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences},
+\href{https://oeis.org/A045723}{A045723}, comment by L.~Clarisse,
+28 April 2006; accessed 16 November 2026.
+\end{thebibliography}
+
+\medskip\noindent\small
+\textcopyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under the \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License (CC BY 4.0)}.
+\end{document}

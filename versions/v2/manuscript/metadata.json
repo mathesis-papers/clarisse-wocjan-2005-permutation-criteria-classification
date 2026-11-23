@@ -1,0 +1,15 @@
+{
+  "id": "clarisse-wocjan-2005-permutation-criteria-classification",
+  "revision": 2,
+  "problem_ids": ["clarisse-wocjan-2005-permutation-criteria-classification"],
+  "topic": "Tensor-index permutation classification for Schatten functionals and rank on density matrices",
+  "title": "Schatten and rank extensions of Clarisse and Wocjan's permutation classification",
+  "creators": [
+    {"name": "Haobo Ma", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Wenlin Zhang", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "Extending Clarisse and Wocjan's orbit bound and answering their norm-dependence question (arXiv:quant-ph/0504160v2, 14 June 2005, Theorem 3, p. 3, equation (2); Section V, p. 6; Definition 1, p. 2), we prove for every r >= 1 and d >= 2 that mixed single-party and Bell-pair states distinguish tensor-index permutations exactly up to the four row-set symmetries. Consequently the prior orbit bound is exact for norm equality. The same classification holds for rank and every Schatten functional with 0 < p <= infinity, p != 2, including quasi-norms below one; all permutations preserve the Hilbert-Schmidt norm. We also give an adaptive identifying family of at most 2r - 1 states and a Bell-state proof of the known partial-transpose incomparability.",
+  "summary": "Complete written proofs of the four-symmetry norm classification, exact orbit count, adaptive identification, rank and Schatten extensions, positive-definite norm testing, uncorrelated-spectator formula, and the known incomparability of nontrivial partial-transpose cuts. The pinned Lean classification declaration states the trace-norm equivalence; its five linked supporting files supply witness norms and label recovery. The additional corollaries have written proofs and accompanying exact finite checks. Incomparability involving realignment criteria is not established here.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/3464bc4487b2236dab97aaf7bbed237f0db28b71/D5/S3/Quantum/Entanglement/PermutationCriteria/ClarisseWocjanClassification.lean"
+}
