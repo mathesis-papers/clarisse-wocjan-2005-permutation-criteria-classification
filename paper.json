@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24414701",
     "current_version": 2,
     "doi": "10.5281/zenodo.24414702",
+    "kind": "note",
     "lean_source": {
       "revision": "3464bc4487b2236dab97aaf7bbed237f0db28b71",
       "url": "https://github.com/the-omega-institute/trureturing/blob/3464bc4487b2236dab97aaf7bbed237f0db28b71/D5/S3/Quantum/Entanglement/PermutationCriteria/ClarisseWocjanClassification.lean"
@@ -55,10 +56,12 @@
     "title": "Schatten and rank extensions of Clarisse and Wocjan's permutation classification",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-23T16:52:09.274630504Z",
         "revision": "2",
-        "version": 2
+        "version": 2,
+        "version_label": null
       }
     ],
     "work": "clarisse-wocjan-2005-permutation-criteria-classification"
